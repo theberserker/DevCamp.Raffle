@@ -2,9 +2,72 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DevCamp.Raffle.App">
-	<Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DarkPrimaryColor">#f57c00</Color>
+            <Color x:Key="PrimaryColor">#ff9800</Color>
+            <Color x:Key="LightPrimaryColor">#ffe0b2</Color>
+            <Color x:Key="TextColor">#212121</Color>
+            <Color x:Key="AccentColor">#03a9f4</Color>
+            <Color x:Key="SecondaryTextColor">#727272</Color>
+            <Color x:Key="DividerColor">#b6b6b6</Color>
+            <Color x:Key="OverlayColor">#66FFFFFF</Color>
+            <Color x:Key="LightGrayColor">#e5e5e5</Color>
 
-		<!-- Application resource dictionary -->
+            <Style TargetType="Button">
+                <Setter Property="HeightRequest" Value="60" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button"
+                   Property="IsEnabled" Value="True">
+                        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                        <Setter Property="TextColor" Value="White" />
+                        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
+                        <Setter Property="BorderRadius" Value="0" />
+                    </Trigger>
+                    <Trigger TargetType="Button"
+                   Property="IsEnabled" Value="False">
+                        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                        <Setter Property="BackgroundColor" Value="{StaticResource LightGrayColor}" />
+                        <Setter Property="BorderRadius" Value="0" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
 
-	</Application.Resources>
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightGrayColor}" />
+                <Setter Property="BorderRadius" Value="0" />
+            </Style>
+
+            <Style x:Key="NextPrevButton" TargetType="Button">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="#f2f2f2" />
+                <Setter Property="BorderRadius" Value="0" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelPrimary">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelDescription">
+                <Setter Property="FontSize" Value="12"></Setter>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelTitle">
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"></Setter>
+            </Style>
+
+            <Style TargetType="BoxView" x:Key="HorizontalDivider">
+                <Setter Property="Color" Value="{StaticResource LightGrayColor}"></Setter>
+                <Setter Property="WidthRequest" Value="100"></Setter>
+                <Setter Property="HeightRequest" Value="1"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
