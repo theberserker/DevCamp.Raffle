@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using DevCamp.Raffle.Features.Participant;
 using Xamarin.Forms;
 
 namespace DevCamp.Raffle
@@ -13,7 +9,7 @@ namespace DevCamp.Raffle
         {
             InitializeComponent();
 
-            MainPage = new DevCamp.Raffle.MainPage();
+            MainPage = new ParticipantPage();
         }
 
         protected override void OnStart()
