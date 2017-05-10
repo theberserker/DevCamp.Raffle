@@ -38,6 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Features\Participant\ParticipantListPage.xaml.cs">
+      <DependentUpon>ParticipantListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Features\Participant\ParticipantPage.xaml.cs">
       <DependentUpon>ParticipantPage.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Features\Participant\ParticipantPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Features\Participant\ParticipantListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

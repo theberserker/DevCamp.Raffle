@@ -9,7 +9,7 @@ namespace DevCamp.Raffle
         {
             InitializeComponent();
 
-            MainPage = new ParticipantPage();
+            MainPage = new ParticipantListPage();
         }
 
         protected override void OnStart()
