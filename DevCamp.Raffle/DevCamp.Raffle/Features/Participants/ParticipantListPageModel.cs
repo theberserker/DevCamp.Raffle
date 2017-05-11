@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -39,6 +40,10 @@ namespace DevCamp.Raffle.Features.Participants
         {
             base.Init(initData);
             ParticipantList = (await _participantsService.GetAll()).ToList();
+
+            // this is required in order to notify the UI for the changes. 
+            // it is a bit of workaround-ish soloution and if done properly, we'd use the ObservableCollection<Participant>, 
+            // however then the propagation to UI would be done for each item added (for each participant).
             RaisePropertyChanged(nameof(ParticipantList));
         }
 
