@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using DevCamp.Raffle.Models;
 using DevCamp.Raffle.Services;
 using FreshMvvm;
+using Xamarin.Forms;
 
 namespace DevCamp.Raffle.Features.Participants
 {
     public class ParticipantListPageModel : FreshBasePageModel
     {
         private readonly IParticipantsService _participantsService;
+        private ICommand _raffleCommand;
 
         public IList<Participant> ParticipantList { get; set; }
 
@@ -35,6 +40,19 @@ namespace DevCamp.Raffle.Features.Participants
             base.Init(initData);
             ParticipantList = (await _participantsService.GetAll()).ToList();
             RaisePropertyChanged(nameof(ParticipantList));
+        }
+
+        public ICommand RaffleCommand
+        {
+            get { return _raffleCommand ?? (_raffleCommand = new Command(async arg => await Raffle(arg))); }
+        }
+
+        private async Task Raffle(object arg)
+        {
+            var random = new Random();
+            int winnerIndex = random.Next(0, ParticipantList.Count);
+            var winner = ParticipantList[winnerIndex];
+            await CoreMethods.DisplayAlert("And the winner is....", winner.ToString(), "Ok");
         }
     }
 }
