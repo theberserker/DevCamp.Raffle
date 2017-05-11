@@ -19,7 +19,7 @@ namespace DevCamp.Raffle.Features.Participants
             {
                 if (value != null)
                 {
-                    //CoreMethods.PushPageModel<ParticipantPageModel>(value);
+                    CoreMethods.PushPageModel<ParticipantPageModel>(value);
                     RaisePropertyChanged();
                 }
             }

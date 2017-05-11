@@ -42,6 +42,10 @@
       <DependentUpon>ParticipantListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Features\Participants\ParticipantListPageModel.cs" />
+    <Compile Include="Features\Participants\ParticipantPage.xaml.cs">
+      <DependentUpon>ParticipantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Participants\ParticipantPageModel.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IParticipantsService.cs" />
@@ -80,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Features\Participants\ParticipantListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Features\Participants\ParticipantPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
