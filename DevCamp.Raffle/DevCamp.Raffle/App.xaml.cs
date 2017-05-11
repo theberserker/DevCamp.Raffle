@@ -1,4 +1,6 @@
-﻿using DevCamp.Raffle.Features.Participant;
+﻿using DevCamp.Raffle.Features.Participants;
+using DevCamp.Raffle.Services;
+using FreshMvvm;
 using Xamarin.Forms;
 
 namespace DevCamp.Raffle
@@ -7,9 +9,11 @@ namespace DevCamp.Raffle
     {
         public App()
         {
-            InitializeComponent();
+            ConfigureIOC();
 
-            MainPage = new ParticipantListPage();
+            var contactList = FreshPageModelResolver.ResolvePageModel<ParticipantListPageModel>();
+            var navContainer = new FreshNavigationContainer(contactList);
+            MainPage = navContainer;
         }
 
         protected override void OnStart()
@@ -25,6 +29,11 @@ namespace DevCamp.Raffle
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        private void ConfigureIOC()
+        {
+            FreshIOC.Container.Register<IParticipantsService, ParticipantsService>();
         }
     }
 }

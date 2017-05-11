@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DevCamp.Raffle.Features.Participants.ParticipantListPage"
+             Title="Dev Camp Raffle">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <ListView ItemsSource="{Binding ParticipantList}" SelectedItem="{Binding SelectedParticipant, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding CompanyName}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Padding="10">
+                <Button Text="Do You Feel lucky?" Command="{Binding RaffleCommand}" BackgroundColor="#03a9f4" TextColor="#ffffff" HeightRequest="60"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
