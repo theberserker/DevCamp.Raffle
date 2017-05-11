@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\NotifyPropertyChangedBase.cs" />
     <Compile Include="Features\Participants\ParticipantListPage.xaml.cs">
       <DependentUpon>ParticipantListPage.xaml</DependentUpon>
     </Compile>
